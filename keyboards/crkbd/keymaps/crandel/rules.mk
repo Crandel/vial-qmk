@@ -1,0 +1,13 @@
+COMBO_ENABLE        = yes
+EXTRAKEY_ENABLE     = yes
+LTO_ENABLE          = yes
+MOUSEKEY_ENABLE     = yes      # Mouse keys
+QMK_SETTINGS        = no
+RGBLIGHT_ENABLE     = yes      # Enable WS2812 RGB underlight.
+TAP_DANCE_ENABLE    = yes
+VIA_ENABLE          = yes      # Enable VIA
+VIAL_ENABLE         = yes      # Enable VIAL
+VIAL_INSECURE       = yes      # Disable security
+OLED_ENABLE         = no
+KEY_OVERRIDE_ENABLE = no
+OLED_DRIVER         = SSD1306
