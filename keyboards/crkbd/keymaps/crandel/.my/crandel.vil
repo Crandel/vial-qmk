@@ -32,8 +32,8 @@
         -1,
         -1,
         "KC_LGUI",
-        "TD(0)",
-        "KC_SPACE"
+        "KC_SPACE",
+        "TD(0)"
       ],
       [
         "KC_DELETE",
@@ -63,8 +63,8 @@
         -1,
         -1,
         -1,
-        "KC_TAB",
         "KC_BSPACE",
+        "KC_TAB",
         "KC_ENTER"
       ]
     ],
@@ -98,8 +98,8 @@
         -1,
         -1,
         "KC_LGUI",
-        "TD(0)",
-        "KC_SPACE"
+        "KC_SPACE",
+        "TD(0)"
       ],
       [
         "KC_BSPACE",
@@ -129,8 +129,8 @@
         -1,
         -1,
         -1,
-        "KC_TAB",
         "KC_BSPACE",
+        "KC_TAB",
         "KC_ENTER"
       ]
     ],
@@ -164,8 +164,8 @@
         -1,
         -1,
         "KC_LGUI",
-        "TD(0)",
-        "KC_SPACE"
+        "KC_SPACE",
+        "TD(0)"
       ],
       [
         "KC_BSPACE",
@@ -195,8 +195,8 @@
         -1,
         -1,
         -1,
-        "KC_TAB",
         "KC_BSPACE",
+        "KC_TAB",
         "KC_ENTER"
       ]
     ],
@@ -261,8 +261,8 @@
         -1,
         -1,
         -1,
-        "KC_TAB",
         "KC_BSPACE",
+        "KC_TAB",
         "KC_ENTER"
       ]
     ],
