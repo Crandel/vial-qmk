@@ -242,7 +242,7 @@
         "KC_F10"
       ],
       [
-        "KC_NO",
+        "DF(4)",
         "KC_MS_R",
         "KC_MS_U",
         "KC_MS_D",
@@ -495,28 +495,28 @@
       "KC_M",
       "KC_NO",
       "KC_NO",
-      "KC_ESCAPE"
+      "KC_TAB"
     ],
     [
       "KC_V",
       "KC_K",
       "KC_NO",
       "KC_NO",
-      "KC_TAB"
+      "KC_ESCAPE"
     ],
     [
-      "KC_3",
-      "KC_LEFT",
+      "KC_F2",
+      "KC_BTN4",
       "KC_NO",
       "KC_NO",
       "KC_ESCAPE"
     ],
     [
-      "KC_F2",
-      "KC_BSLASH",
       "KC_NO",
       "KC_NO",
-      "KC_TAB"
+      "KC_NO",
+      "KC_NO",
+      "KC_NO"
     ],
     [
       "KC_NO",
