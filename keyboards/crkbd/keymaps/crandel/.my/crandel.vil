@@ -6,7 +6,7 @@
       [
         "KC_GESC",
         "KC_Q",
-        "RALT_T(KC_W)",
+        "LALT_T(KC_W)",
         "LCTL_T(KC_F)",
         "LSFT_T(KC_P)",
         "KC_B"
@@ -20,7 +20,7 @@
         "KC_G"
       ],
       [
-        "KC_CAPSLOCK",
+        "KC_LSHIFT",
         "KC_Z",
         "KC_X",
         "KC_C",
@@ -78,7 +78,7 @@
         "KC_MINUS"
       ],
       [
-        "KC_F1",
+        "KC_LCTRL",
         "KC_F4",
         "KC_8",
         "KC_5",
@@ -86,7 +86,7 @@
         "KC_3"
       ],
       [
-        "KC_PSCREEN",
+        "KC_F1",
         "KC_F3",
         "KC_9",
         "KC_6",
@@ -102,11 +102,11 @@
         "TD(0)"
       ],
       [
-        "KC_BSPACE",
+        "KC_DELETE",
         "M3",
-        "RALT_T(KC_END)",
-        "LCTL_T(KC_PGUP)",
-        "LSFT_T(KC_PGDOWN)",
+        "RALT_T(KC_PGUP)",
+        "LCTL_T(KC_PGDOWN)",
+        "LSFT_T(KC_END)",
         "KC_HOME"
       ],
       [
@@ -118,7 +118,7 @@
         "TD(1)"
       ],
       [
-        "KC_DELETE",
+        "KC_PSCREEN",
         "KC_BSLASH",
         "KC_BTN3",
         "KC_BTN2",
@@ -168,8 +168,8 @@
         "TD(0)"
       ],
       [
-        "KC_BSPACE",
-        "LSFT(KC_GRAVE)",
+        "KC_DELETE",
+        "LSFT(KC_SCOLON)",
         "LSFT(KC_GRAVE)",
         "KC_GRAVE",
         "LSFT(KC_BSLASH)",
@@ -184,7 +184,7 @@
         "KC_MUTE"
       ],
       [
-        "KC_DELETE",
+        "KC_PSCREEN",
         "LSFT(KC_RBRACKET)",
         "LSFT(KC_DOT)",
         "LSFT(KC_COMMA)",
@@ -210,7 +210,7 @@
         "KC_F9"
       ],
       [
-        "KC_BTN4",
+        "KC_LCTRL",
         "M0",
         "KC_BTN4",
         "KC_BTN2",
@@ -230,8 +230,8 @@
         -1,
         -1,
         "KC_LGUI",
-        "TD(0)",
-        "KC_SPACE"
+        "KC_SPACE",
+        "TD(0)"
       ],
       [
         "RESET",
@@ -328,7 +328,7 @@
         -1,
         -1,
         "KC_F9",
-        "DF(0)",
+        "TD(0)",
         "KC_ENTER"
       ]
     ]
@@ -395,7 +395,14 @@
         "LSFT(KC_QUOTE)"
       ]
     ],
-    [],
+    [
+      [
+        "tap",
+        "KC_SCOLON",
+        "KC_W",
+        "KC_Q"
+      ]
+    ],
     [],
     [],
     [],
@@ -408,7 +415,7 @@
     [],
     []
   ],
-  "vial_protocol": 5,
+  "vial_protocol": 6,
   "via_protocol": 9,
   "tap_dance": [
     [
@@ -512,11 +519,11 @@
       "KC_ESCAPE"
     ],
     [
+      "KC_GESC",
+      "KC_DELETE",
       "KC_NO",
       "KC_NO",
-      "KC_NO",
-      "KC_NO",
-      "KC_NO"
+      "M4"
     ],
     [
       "KC_NO",

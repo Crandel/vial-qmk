@@ -27,7 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VIAL_COMBO_ENTRIES     9
 
 #define DYNAMIC_KEYMAP_LAYER_COUNT 5
-#define TAPPING_TERM 560
+#define TAPPING_TERM 360
 #define TAPPING_TOGGLE 3
 #define PERMISSIVE_HOLD
 
