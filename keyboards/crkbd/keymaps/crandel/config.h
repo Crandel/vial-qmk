@@ -39,12 +39,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* Select hand configuration */
 
-// #define MASTER_LEFT
-#define MASTER_RIGHT
+#define MASTER_LEFT
+// #define MASTER_RIGHT
 
 // #define EE_HANDS
 
+#define USE_SERIAL
 #define USE_SERIAL_PD2
+#define SPLIT_USB_DETECT
+#define SPLIT_TRANSPORT_MIRROR
+#define SPLIT_LAYER_STATE_ENABLE
 
 #ifdef RGBLIGHT_ENABLE
 #  undef RGBLIGHT_EFFECT_ALTERNATING
