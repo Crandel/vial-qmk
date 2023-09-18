@@ -40,15 +40,15 @@
         "KC_SCOLON",
         "RALT_T(KC_Y)",
         "LCTL_T(KC_U)",
-        "LSFT_T(KC_L)",
-        "KC_J"
+        "LSFT_T(KC_O)",
+        "KC_E"
       ],
       [
         "TD(3)",
-        "KC_O",
-        "KC_I",
-        "KC_E",
-        "KC_N",
+        "KC_L",
+        "KC_K",
+        "KC_J",
+        "KC_H",
         "KC_M"
       ],
       [
@@ -56,8 +56,8 @@
         "KC_SLASH",
         "KC_DOT",
         "KC_COMMA",
-        "KC_H",
-        "KC_K"
+        "KC_N",
+        "KC_I"
       ],
       [
         -1,
@@ -485,13 +485,13 @@
   "combo": [
     [
       "KC_B",
-      "KC_J",
+      "KC_E",
       "KC_NO",
       "KC_NO",
       "M2"
     ],
     [
-      "KC_H",
+      "KC_N",
       "KC_D",
       "KC_NO",
       "KC_NO",
@@ -506,7 +506,7 @@
     ],
     [
       "KC_V",
-      "KC_K",
+      "KC_I",
       "KC_NO",
       "KC_NO",
       "KC_ESCAPE"
