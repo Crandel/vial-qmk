@@ -45,7 +45,8 @@ enum layers {
 #define CR_HSV_YELLOW       43, 255, 55
 
 void set_indicators_state(uint8_t hue, uint8_t sat, uint8_t val){
-  rgblight_sethsv(hue, sat, val);
+  rgblight_sethsv_master(hue, sat, val);
+  rgblight_sethsv_slave(hue, sat, val);
 }
 
 
