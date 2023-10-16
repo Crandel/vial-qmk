@@ -5,6 +5,24 @@
   "lighting": {
       "extends": "qmk_rgblight"
   },
+  "customKeycodes": [
+    {"name": "VUS",
+     "title": "Virtual US lang",
+     "shortName": "V_US"
+    },
+    {"name": "VUK",
+     "title": "Virtual Ukrainian lang",
+     "shortName": "V_UK"
+    },
+    {"name": "VDot",
+     "title": "Virtual dot",
+     "shortName": "V_DOT"
+    },
+    {"name": "VComma",
+     "title": "Virtual comma",
+     "shortname": "V_COMMA"
+    }
+  ],
   "matrix": { "rows": 8, "cols": 6 },
   "macro": [
     [

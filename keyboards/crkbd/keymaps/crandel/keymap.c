@@ -18,6 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include QMK_KEYBOARD_H
+#include "vial.h"
 
 enum layers {
   COLMAK_L = 0,
@@ -25,6 +26,13 @@ enum layers {
   CHARS_L = 2,
   MOUSE_L = 3,
   GAME_L = 4,
+};
+
+enum virtual_keycodes {
+    V_US = QK_KB_0,
+    V_UK,
+    V_DOT,
+    V_COM,
 };
 
 #define TO_CLM DF(COLMAK_L)
@@ -43,6 +51,8 @@ enum layers {
 #define CR_HSV_PURPLE      191, 255, 55
 #define CR_HSV_RED           0, 255, 55
 #define CR_HSV_YELLOW       43, 255, 55
+
+bool us_lang = true;
 
 void set_indicators_state(uint8_t hue, uint8_t sat, uint8_t val){
   rgblight_sethsv(hue, sat, val);
@@ -76,6 +86,40 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       set_indicators_state(CR_HSV_RED);
     }
     break;
+  case V_US:
+    if (record->event.pressed) {
+      us_lang = true;
+      tap_code(KC_CAPS);
+    }
+    break;
+  case V_UK:
+    if (record->event.pressed) {
+      us_lang = false;
+      register_code(KC_LEFT_SHIFT);
+      tap_code(KC_CAPS);
+      unregister_code(KC_LEFT_SHIFT);
+    }
+    break;
+  case V_DOT:
+    if (record->event.pressed) {
+      if (us_lang) {
+          tap_code(KC_DOT);
+      } else {
+          tap_code(KC_SLSH);
+      }
+    }
+    break;
+  case V_COM:
+    if (record->event.pressed) {
+        if (us_lang) {
+            tap_code(KC_COMM);
+        } else {
+            register_code(KC_LEFT_SHIFT);
+            tap_code(KC_SLSH);
+            unregister_code(KC_LEFT_SHIFT);
+        }
+    }
+    break;
   }
   return true;
 }
@@ -84,25 +128,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #ifdef TAP_DANCE_ENABLE
 #define TAP_TAPPING_TERM 220
 void keyboard_post_init_user(void) {
-    vial_tap_dance_entry_t td0 = { TO_CLM,
+    vial_tap_dance_entry_t td0 = { TO_CLM, // Change layers
                                    TO_CHR,
                                    TO_NMB,
                                    TO_MOS,
                                    TAP_TAPPING_TERM };
-    vial_tap_dance_entry_t td1 = { KC_DOT,
-                                   KC_QUOT,
-                                   KC_COMM,
-                                   LSFT(KC_SLSH),
+    vial_tap_dance_entry_t td1 = { V_US, // Change language
+                                   V_US,
+                                   V_UK,
+                                   V_UK,
                                    TAP_TAPPING_TERM };
-    vial_tap_dance_entry_t td2 = { KC_BTN1,
-                                   KC_BTN3,
-                                   KC_BTN2,
-                                   KC_BTN4,
-                                   TAP_TAPPING_TERM };
-    vial_tap_dance_entry_t td3 = { KC_QUOT,
+    vial_tap_dance_entry_t td2 = { KC_QUOT, // ' [ / ]
                                    KC_LBRC,
                                    KC_SLSH,
                                    KC_RBRC,
+                                   TAP_TAPPING_TERM };
+    vial_tap_dance_entry_t td3 = { KC_SLASH, // / , . backslash
+                                   KC_COMM,
+                                   KC_DOT,
+                                   KC_BSLS,
                                    TAP_TAPPING_TERM };
     dynamic_keymap_set_tap_dance(0, &td0); // the first value corresponds to the TD(i) slot
     dynamic_keymap_set_tap_dance(1, &td1);
@@ -117,9 +161,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------------------.    ,------------------------------------------------------------------.
      QK_GESC,    KC_Q, LALT_T(KC_W), LCTL_T(KC_F), LSFT_T(KC_P),  KC_B,       KC_E, LSFT_T(KC_O), LCTL_T(KC_U), RALT_T(KC_Y), KC_SCLN,  KC_DEL,
   //|-------+--------+-------------+-------------+-------------+------|    |------+-------------+-------------+-------------+--------+--------|
-     KC_CAPS,    KC_A,         KC_R,         KC_S,         KC_T,  KC_G,       KC_M,         KC_H,         KC_J,         KC_K,    KC_L,   TD(3),
+       TD(1),    KC_A,         KC_R,         KC_S,         KC_T,  KC_G,       KC_M,         KC_H,         KC_J,         KC_K,    KC_L,   TD(2),
   //|-------+--------+-------------+-------------+-------------+------|    |------+-------------+-------------+-------------+--------+--------|
-     KC_LSFT,    KC_Z,         KC_X,         KC_C,         KC_D,  KC_V,       KC_I,         KC_N,      KC_COMM,       KC_DOT, KC_SLSH, KC_PSCR,
+     KC_LSFT,    KC_Z,         KC_X,         KC_C,         KC_D,  KC_V,       KC_I,         KC_N,        V_COM,        V_DOT,   TD(3), KC_PSCR,
   //|-------+--------+-------------+-------------+-------------+-- ---|    |------+-------------+-------------+-------------+--------+--------|
                                           KC_LGUI,       KC_SPC, TD(0),     KC_ENT,       KC_TAB,      KC_BSPC
                                           //`-------------------------'    `----------------------------------'
@@ -129,7 +173,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,------------------------------------------------------------------.    ,---------------------------------------------------------------------------------.
       QK_GESC, KC_F5, LALT_T(KC_7), LCTL_T(KC_4), LSFT_T(KC_2), KC_MINS,          KC_HOME, LSFT_T(KC_END), LCTL_T(KC_PGDN), RALT_T(KC_PGUP),  XXXXXXX,  KC_DEL,
   //|--------+------+-------------+-------------+-------------+--------|    |------------+---------------+----------------+----------------+---------+--------|
-      KC_LCTL, KC_F4,         KC_8,         KC_5,         KC_1,    KC_3,            TD(1),        KC_LEFT,         KC_DOWN,           KC_UP, KC_RIGHT,   TD(3),
+        TD(1), KC_F4,         KC_8,         KC_5,         KC_1,    KC_3,            V_DOT,        KC_LEFT,         KC_DOWN,           KC_UP, KC_RIGHT,   TD(2),
   //|--------+------+-------------+-------------+-------------+--------|    |------------+---------------+----------------+----------------+---------+--------|
         KC_F1, KC_F3,         KC_9,         KC_6,         KC_0,   KC_F2,          KC_BTN4,        KC_BTN1,         KC_BTN2,         KC_BTN3,  KC_BSLS, KC_PSCR,
   //---------+------+-------------+-------------+-------------+--------|    |------------+---------------+----------------+----------------+---------+--------|
@@ -141,7 +185,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,------------------------------------------------------------------.    ---------------------------------------------------------------------------------.
        QK_GESC,   KC_F7, LSFT(KC_7), LSFT(KC_4), LSFT(KC_2),      KC_F8,           KC_EQL, LSFT(KC_BSLS),        KC_GRV, LSFT(KC_GRV), LSFT(KC_SCLN),  KC_DEL,
   //|---------+--------+-----------+-----------+-----------+-----------|    |------------+--------------+--------------+-------------+--------------+--------|
-       KC_LCTL, XXXXXXX, LSFT(KC_8), LSFT(KC_5), LSFT(KC_1), LSFT(KC_3),       KC_KB_MUTE,       KC_LBRC,    LSFT(KC_9),   LSFT(KC_0),       KC_RBRC,   TD(3),
+         TD(1), XXXXXXX, LSFT(KC_8), LSFT(KC_5), LSFT(KC_1), LSFT(KC_3),       KC_KB_MUTE,       KC_LBRC,    LSFT(KC_9),   LSFT(KC_0),       KC_RBRC,   TD(2),
   //|---------+--------+-----------+-----------+-----------+-----------|    |------------+--------------+--------------+-------------+--------------+--------|
        KC_LALT, XXXXXXX,     KC_CUT, LSFT(KC_6),     KC_APP,    KC_PSTE,     LSFT(KC_EQL), LSFT(KC_LBRC), LSFT(KC_COMM), LSFT(KC_DOT), LSFT(KC_RBRC), KC_PSCR,
   //|---------+--------+-----------+-----------+-----------+-----------|    |------------+--------------+--------------+-------------+--------------+--------|
@@ -153,7 +197,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-------------------------------------------------------.              ,--------------------------------------------------------.
       QK_GESC,  KC_BRID, KC_BRIU,  KC_VOLD, KC_VOLU,   KC_F9,                    KC_F10,  KC_F11, KC_WH_D, KC_WH_U, KC_PSCR, QK_BOOT,
   //|--------+---------+--------+---------+--------+--------|              |-----------+--------+--------+--------+--------+--------|
-      KC_LCTL,  XXXXXXX, KC_BTN4,  KC_BTN2, KC_BTN1, KC_BTN3,                    KC_F12, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R,  TO_GAM,
+        TD(1),  XXXXXXX, KC_BTN4,  KC_BTN2, KC_BTN1, KC_BTN3,                    KC_F12, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R,  TO_GAM,
   //|--------+---------+--------+---------+--------+--------|              |-----------+--------+--------+--------+-----------------|
       QK_BOOT,  XXXXXXX,  KC_CUT,  KC_COPY,  KC_APP, KC_PSTE,                    KC_INS, KC_WBAK, KC_PGDN, KC_PGUP, KC_WFWD, XXXXXXX,
   //|--------+---------+--------+------------------+--------|              |-----------+--------+--------+--------+--------+--------|
@@ -165,7 +209,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----------------------------------------------.    ,----------------------------------------------------.
      QK_GESC,    KC_G, KC_Q,   KC_W,   KC_E,   KC_H,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|-------+--------+-----+-------+-------+-------|    |------+---------+--------+--------+--------+--------|
-     XXXXXXX, KC_LSFT, KC_A,   KC_S,   KC_D,   KC_F,       KC_1,     KC_2,    KC_3,    KC_4,    KC_5, XXXXXXX,
+       TD(1), KC_LSFT, KC_A,   KC_S,   KC_D,   KC_F,       KC_1,     KC_2,    KC_3,    KC_4,    KC_5, XXXXXXX,
   //|-------+--------+-----+-------+-------+-------|    |------+---------+--------+--------+--------+--------|
      XXXXXXX, KC_LCTL, KC_Z,   KC_X,   KC_C,   KC_V,       KC_6,     KC_7,    KC_8,    KC_9,    KC_0, XXXXXXX,
   //|-------+--------+-----+-------+-------+-------|    |------+---------+--------+--------+--------+--------|
