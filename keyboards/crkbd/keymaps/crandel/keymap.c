@@ -143,9 +143,9 @@ void keyboard_post_init_user(void) {
                                    KC_SLSH,
                                    KC_RBRC,
                                    TAP_TAPPING_TERM };
-    vial_tap_dance_entry_t td3 = { KC_SLASH, // / , . backslash
-                                   KC_COMM,
+    vial_tap_dance_entry_t td3 = { KC_SLASH, // / . , backslash
                                    KC_DOT,
+                                   KC_COMM,
                                    KC_BSLS,
                                    TAP_TAPPING_TERM };
     dynamic_keymap_set_tap_dance(0, &td0); // the first value corresponds to the TD(i) slot

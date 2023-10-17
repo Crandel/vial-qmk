@@ -429,8 +429,8 @@
     ],
     [
       "KC_SLASH",
-      "KC_COMMA",
       "KC_DOT",
+      "KC_COMMA",
       "KC_BSLASH",
       220
     ],
