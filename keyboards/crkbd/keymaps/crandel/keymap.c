@@ -31,8 +31,6 @@ enum layers {
 enum virtual_keycodes {
     V_US = QK_KB_0,
     V_UK,
-    V_DOT,
-    V_COM,
 };
 
 #define TO_CLM DF(COLMAK_L)
@@ -51,8 +49,6 @@ enum virtual_keycodes {
 #define CR_HSV_PURPLE      191, 255, 55
 #define CR_HSV_RED           0, 255, 55
 #define CR_HSV_YELLOW       43, 255, 55
-
-bool us_lang = true;
 
 void set_indicators_state(uint8_t hue, uint8_t sat, uint8_t val){
   rgblight_sethsv(hue, sat, val);
@@ -88,36 +84,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
   case V_US:
     if (record->event.pressed) {
-      us_lang = true;
       tap_code(KC_CAPS);
     }
     break;
   case V_UK:
     if (record->event.pressed) {
-      us_lang = false;
       register_code(KC_LEFT_SHIFT);
       tap_code(KC_CAPS);
       unregister_code(KC_LEFT_SHIFT);
-    }
-    break;
-  case V_DOT:
-    if (record->event.pressed) {
-      if (us_lang) {
-          tap_code(KC_DOT);
-      } else {
-          tap_code(KC_SLSH);
-      }
-    }
-    break;
-  case V_COM:
-    if (record->event.pressed) {
-        if (us_lang) {
-            tap_code(KC_COMM);
-        } else {
-            register_code(KC_LEFT_SHIFT);
-            tap_code(KC_SLSH);
-            unregister_code(KC_LEFT_SHIFT);
-        }
     }
     break;
   }
@@ -134,13 +108,13 @@ void keyboard_post_init_user(void) {
                                    TO_MOS,
                                    TAP_TAPPING_TERM };
     vial_tap_dance_entry_t td1 = { V_US, // Change language
-                                   V_US,
+                                   V_UK,
                                    V_UK,
                                    V_UK,
                                    TAP_TAPPING_TERM };
-    vial_tap_dance_entry_t td2 = { KC_QUOT, // ' [ / ]
+    vial_tap_dance_entry_t td2 = { KC_QUOT, // ' [ ? ]
                                    KC_LBRC,
-                                   KC_SLSH,
+                                   LSFT(KC_SLSH),
                                    KC_RBRC,
                                    TAP_TAPPING_TERM };
     vial_tap_dance_entry_t td3 = { KC_SLASH, // / . , backslash
@@ -163,7 +137,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|-------+--------+-------------+-------------+-------------+------|    |------+-------------+-------------+-------------+--------+--------|
        TD(1),    KC_A,         KC_R,         KC_S,         KC_T,  KC_G,       KC_M,         KC_H,         KC_J,         KC_K,    KC_L,   TD(2),
   //|-------+--------+-------------+-------------+-------------+------|    |------+-------------+-------------+-------------+--------+--------|
-     KC_LSFT,    KC_Z,         KC_X,         KC_C,         KC_D,  KC_V,       KC_I,         KC_N,        V_COM,        V_DOT,   TD(3), KC_PSCR,
+     KC_LSFT,    KC_Z,         KC_X,         KC_C,         KC_D,  KC_V,       KC_I,         KC_N,      KC_COMM,       KC_DOT,   TD(3), KC_PSCR,
   //|-------+--------+-------------+-------------+-------------+-- ---|    |------+-------------+-------------+-------------+--------+--------|
                                           KC_LGUI,       KC_SPC, TD(0),     KC_ENT,       KC_TAB,      KC_BSPC
                                           //`-------------------------'    `----------------------------------'
@@ -173,7 +147,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,------------------------------------------------------------------.    ,---------------------------------------------------------------------------------.
       QK_GESC, KC_F5, LALT_T(KC_7), LCTL_T(KC_4), LSFT_T(KC_2), KC_MINS,          KC_HOME, LSFT_T(KC_END), LCTL_T(KC_PGDN), RALT_T(KC_PGUP),  XXXXXXX,  KC_DEL,
   //|--------+------+-------------+-------------+-------------+--------|    |------------+---------------+----------------+----------------+---------+--------|
-        TD(1), KC_F4,         KC_8,         KC_5,         KC_1,    KC_3,            V_DOT,        KC_LEFT,         KC_DOWN,           KC_UP, KC_RIGHT,   TD(2),
+        TD(1), KC_F4,         KC_8,         KC_5,         KC_1,    KC_3,           KC_DOT,        KC_LEFT,         KC_DOWN,           KC_UP, KC_RIGHT,   TD(2),
   //|--------+------+-------------+-------------+-------------+--------|    |------------+---------------+----------------+----------------+---------+--------|
         KC_F1, KC_F3,         KC_9,         KC_6,         KC_0,   KC_F2,          KC_BTN4,        KC_BTN1,         KC_BTN2,         KC_BTN3,  KC_BSLS, KC_PSCR,
   //---------+------+-------------+-------------+-------------+--------|    |------------+---------------+----------------+----------------+---------+--------|

@@ -54,8 +54,8 @@
       [
         "KC_PSCREEN",
         "TD(3)",
-        "USER02",
-        "USER03",
+        "KC_DOT",
+        "KC_COMMA",
         "KC_N",
         "KC_I"
       ],
@@ -115,7 +115,7 @@
         "KC_UP",
         "KC_DOWN",
         "KC_LEFT",
-        "USER02"
+        "KC_DOT"
       ],
       [
         "KC_PSCREEN",
@@ -415,7 +415,7 @@
     ],
     [
       "USER00",
-      "USER00",
+      "USER01",
       "USER01",
       "USER01",
       220
@@ -423,7 +423,7 @@
     [
       "KC_QUOTE",
       "KC_LBRACKET",
-      "KC_SLASH",
+      "LSFT(KC_SLASH)",
       "KC_RBRACKET",
       220
     ],
@@ -508,7 +508,7 @@
     ],
     [
       "KC_3",
-      "USER02",
+      "KC_DOT",
       "KC_NO",
       "KC_NO",
       "KC_TAB"
