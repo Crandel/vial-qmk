@@ -181,7 +181,7 @@
         "LSFT(KC_0)",
         "LSFT(KC_9)",
         "KC_LBRACKET",
-        "0x7f"
+        "KC_LCTRL"
       ],
       [
         "KC_PSCREEN",
@@ -493,11 +493,11 @@
       "USER00"
     ],
     [
-      "KC_0",
-      "KC_BTN1",
       "KC_NO",
       "KC_NO",
-      "USER00"
+      "KC_NO",
+      "KC_NO",
+      "KC_NO"
     ],
     [
       "KC_G",
