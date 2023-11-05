@@ -1,4 +1,5 @@
 COMBO_ENABLE        = yes
+CONSOLE_ENABLE      = no
 EXTRAKEY_ENABLE     = yes
 KEY_OVERRIDE_ENABLE = no
 LTO_ENABLE          = yes

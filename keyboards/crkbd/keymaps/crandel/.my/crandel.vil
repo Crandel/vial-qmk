@@ -40,7 +40,7 @@
         "KC_SCOLON",
         "RALT_T(KC_Y)",
         "LCTL_T(KC_U)",
-        "LSFT_T(KC_O)",
+        "LSFT_T(KC_I)",
         "KC_E"
       ],
       [
@@ -57,7 +57,7 @@
         "KC_DOT",
         "KC_COMMA",
         "KC_N",
-        "KC_I"
+        "KC_O"
       ],
       [
         -1,
@@ -515,7 +515,7 @@
     ],
     [
       "KC_V",
-      "KC_I",
+      "KC_O",
       "KC_NO",
       "KC_NO",
       "KC_ESCAPE"

@@ -133,11 +133,11 @@ void keyboard_post_init_user(void) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [COLMAK_L] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------------------.    ,------------------------------------------------------------------.
-     QK_GESC,    KC_Q, LALT_T(KC_W), LCTL_T(KC_F), LSFT_T(KC_P),  KC_B,       KC_E, LSFT_T(KC_O), LCTL_T(KC_U), RALT_T(KC_Y), KC_SCLN,  KC_DEL,
+     QK_GESC,    KC_Q, LALT_T(KC_W), LCTL_T(KC_F), LSFT_T(KC_P),  KC_B,       KC_E, LSFT_T(KC_I), LCTL_T(KC_U), RALT_T(KC_Y), KC_SCLN,  KC_DEL,
   //|-------+--------+-------------+-------------+-------------+------|    |------+-------------+-------------+-------------+--------+--------|
        TD(1),    KC_A,         KC_R,         KC_S,         KC_T,  KC_G,       KC_M,         KC_H,         KC_J,         KC_K,    KC_L,   TD(2),
   //|-------+--------+-------------+-------------+-------------+------|    |------+-------------+-------------+-------------+--------+--------|
-     KC_LSFT,    KC_Z,         KC_X,         KC_C,         KC_D,  KC_V,       KC_I,         KC_N,      KC_COMM,       KC_DOT,   TD(3), KC_PSCR,
+     KC_LSFT,    KC_Z,         KC_X,         KC_C,         KC_D,  KC_V,       KC_O,         KC_N,      KC_COMM,       KC_DOT,   TD(3), KC_PSCR,
   //|-------+--------+-------------+-------------+-------------+-- ---|    |------+-------------+-------------+-------------+--------+--------|
                                           KC_LGUI,       KC_SPC, TD(0),     KC_ENT,       KC_TAB,      KC_BSPC
                                           //`-------------------------'    `----------------------------------'
