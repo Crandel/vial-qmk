@@ -89,15 +89,68 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
   case V_UK:
     if (record->event.pressed) {
-      register_code(KC_LEFT_SHIFT);
-      tap_code(KC_CAPS);
-      unregister_code(KC_LEFT_SHIFT);
+      tap_code16(S(KC_CAPS));
     }
     break;
   }
   return true;
 }
 #endif // RGBLIGHT_ENABLE
+
+
+#ifdef LEADER_ENABLE
+void leader_end_user(void) {
+  if (leader_sequence_one_key(QK_LEAD)) {
+    return;
+  }
+  if (leader_sequence_one_key(KC_C)) {
+    register_code(KC_LSFT);
+    tap_code16(C(KC_C));
+    unregister_code(KC_LSFT);
+    return;
+  }
+  if (leader_sequence_one_key(KC_V)) {
+    register_code(KC_LSFT);
+    tap_code16(C(KC_V));
+    unregister_code(KC_LSFT);
+    return;
+  }
+  if (leader_sequence_one_key(KC_A)) {
+    tap_code(KC_PSCR);
+    tap_code16(S(KC_QUOT));
+    tap_code(KC_A);
+    return;
+  }
+  if (leader_sequence_one_key(KC_E)) {
+    tap_code(KC_PSCR);
+    tap_code16(S(KC_QUOT));
+    tap_code(KC_E);
+    return;
+  }
+  if (leader_sequence_one_key(KC_O)) {
+    tap_code(KC_PSCR);
+    tap_code16(S(KC_QUOT));
+    tap_code(KC_O);
+    return;
+  }
+  if (leader_sequence_one_key(KC_U)) {
+    tap_code(KC_PSCR);
+    tap_code16(S(KC_QUOT));
+    tap_code(KC_U);
+    return;
+  }
+  if (leader_sequence_one_key(KC_Q)) {
+    tap_code(KC_SCLN);
+    tap_code(KC_W);
+    tap_code(KC_Q);
+    return;
+  }
+  if (leader_sequence_one_key(KC_X)) {
+    tap_code16(A(KC_X));
+    return;
+  }
+}
+#endif
 
 #ifdef TAP_DANCE_ENABLE
 #define TAP_TAPPING_TERM 220
@@ -137,7 +190,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|-------+--------+-------------+-------------+-------------+------|    |------+-------------+-------------+-------------+--------+--------|
        TD(1),    KC_A,         KC_R,         KC_S,         KC_T,  KC_G,       KC_M,         KC_H,         KC_J,         KC_K,    KC_L,   TD(2),
   //|-------+--------+-------------+-------------+-------------+------|    |------+-------------+-------------+-------------+--------+--------|
-     KC_LSFT,    KC_Z,         KC_X,         KC_C,         KC_D,  KC_V,       KC_O,         KC_N,      KC_COMM,       KC_DOT,   TD(3), KC_PSCR,
+     KC_LSFT,    KC_Z,         KC_X,         KC_C,         KC_D,  KC_V,       KC_O,         KC_N,      KC_COMM,       KC_DOT,   TD(3), QK_LEAD,
   //|-------+--------+-------------+-------------+-------------+-- ---|    |------+-------------+-------------+-------------+--------+--------|
                                           KC_LGUI,       KC_SPC, TD(0),     KC_ENT,       KC_TAB,      KC_BSPC
                                           //`-------------------------'    `----------------------------------'

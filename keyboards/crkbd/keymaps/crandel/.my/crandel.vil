@@ -52,7 +52,7 @@
         "KC_M"
       ],
       [
-        "KC_PSCREEN",
+        "0x7c58",
         "TD(3)",
         "KC_DOT",
         "KC_COMMA",

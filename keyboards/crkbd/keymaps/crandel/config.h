@@ -38,7 +38,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM 360
 #define TAPPING_TOGGLE 3
 #define PERMISSIVE_HOLD
-
 //#define USE_MATRIX_I2C
 #ifdef KEYBOARD_crkbd_rev1_legacy
 #    undef USE_I2C
@@ -78,6 +77,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #  define RGBLIGHT_LIMIT_VAL 120
 #  define RGBLIGHT_SLEEP
 #  define RGBLIGHT_SPLIT
+#endif
+
+#ifdef LEADER_ENABLE
+#  define LEADER_NO_TIMEOUT
+#  define LEADER_PER_KEY_TIMING
 #endif
 
 #ifdef OLED_ENABLE

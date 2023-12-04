@@ -2,6 +2,7 @@ COMBO_ENABLE        = yes
 CONSOLE_ENABLE      = no
 EXTRAKEY_ENABLE     = yes
 KEY_OVERRIDE_ENABLE = no
+LEADER_ENABLE       = yes
 LTO_ENABLE          = yes
 MIDI_ENABLE         = no
 MOUSEKEY_ENABLE     = yes      # Mouse keys
