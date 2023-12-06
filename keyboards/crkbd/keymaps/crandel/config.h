@@ -19,6 +19,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
+#ifdef DEBUG_ENABLE
+#include "print.h"
+#endif
 // Disable options
 #ifndef NO_DEBUG
 #define NO_DEBUG
@@ -35,7 +38,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VIAL_COMBO_ENTRIES     9
 
 #define DYNAMIC_KEYMAP_LAYER_COUNT 5
-#define TAPPING_TERM 360
+#define TAPPING_TERM   160
 #define TAPPING_TOGGLE 3
 #define PERMISSIVE_HOLD
 //#define USE_MATRIX_I2C
@@ -77,6 +80,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #  define RGBLIGHT_LIMIT_VAL 120
 #  define RGBLIGHT_SLEEP
 #  define RGBLIGHT_SPLIT
+#  define CR_HSV_BLUE        170, 255, 55
+#  define CR_HSV_CYAN        128, 255, 55
+#  define CR_HSV_GOLD         36, 255, 55
+#  define CR_HSV_GREEN        85, 255, 55
+#  define CR_HSV_MAGENTA     213, 255, 55
+#  define CR_HSV_ORANGE       21, 255, 55
+#  define CR_HSV_PURPLE      191, 255, 55
+#  define CR_HSV_RED           0, 255, 55
+#  define CR_HSV_YELLOW       43, 255, 55
 #endif
 
 #ifdef LEADER_ENABLE

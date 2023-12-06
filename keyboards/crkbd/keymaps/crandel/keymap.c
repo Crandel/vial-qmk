@@ -20,168 +20,72 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 #include "vial.h"
 
-enum layers {
-  COLMAK_L = 0,
-  NUM_L = 1,
-  CHARS_L = 2,
-  MOUSE_L = 3,
-  GAME_L = 4,
-};
+#include "crd_keycodes.h"
 
-enum virtual_keycodes {
-    V_US = QK_KB_0,
-    V_UK,
-};
+#ifdef OLED_ENABLE
+#  include <stdio.h>
+#  include "crd_oled.c"
+#endif
 
-#define TO_CLM DF(COLMAK_L)
-#define TO_NMB DF(NUM_L)
-#define TO_CHR DF(CHARS_L)
-#define TO_MOS DF(MOUSE_L)
-#define TO_GAM DF(GAME_L)
+#include "crd_helpers.c"
+
+#ifdef LEADER_ENABLE
+#  include "crd_leader.c"
+#endif
+
+#ifdef TAP_DANCE_ENABLE
+#  include "crd_tapdance.c"
+#endif
 
 #ifdef RGBLIGHT_ENABLE
-#define CR_HSV_BLUE        170, 255, 55
-#define CR_HSV_CYAN        128, 255, 55
-#define CR_HSV_GOLD         36, 255, 55
-#define CR_HSV_GREEN        85, 255, 55
-#define CR_HSV_MAGENTA     213, 255, 55
-#define CR_HSV_ORANGE       21, 255, 55
-#define CR_HSV_PURPLE      191, 255, 55
-#define CR_HSV_RED           0, 255, 55
-#define CR_HSV_YELLOW       43, 255, 55
+layer_state_t default_layer_state_set_user(layer_state_t state) {
+  #ifdef CONSOLE_ENABLE
+  uprintf("current state in default_layer_state_set_user %d, biton %d\n", state, biton32(state));
+  #endif // CONSOLE_ENABLE
+  switch (biton32(state)) {
+    case COLMAK_L:
+      rgblight_sethsv(CR_HSV_GREEN);
+      break;
+    case NUM_L:
+      rgblight_sethsv(CR_HSV_BLUE);
+      break;
+    case CHARS_L:
+      rgblight_sethsv(CR_HSV_GOLD);
+      break;
+    case MOUSE_L:
+      rgblight_sethsv(CR_HSV_ORANGE);
+      break;
+    case GAME_L:
+      rgblight_sethsv(CR_HSV_RED);
+      break;
+  }
+  return state;
+};
+#endif // RGBLIGHT_ENABLE
 
-void set_indicators_state(uint8_t hue, uint8_t sat, uint8_t val){
-  rgblight_sethsv(hue, sat, val);
+void set_lang(bool lng){
+  if (lng) {
+    tap_code(KC_CAPS);
+  } else {
+    tap_code16(S(KC_CAPS));
+  }
 }
-
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-  case TO_CLM:
-    if (record->event.pressed) {
-      set_indicators_state(CR_HSV_GREEN);
-    }
-    break;
-  case TO_NMB:
-    if (record->event.pressed) {
-      set_indicators_state(CR_HSV_BLUE);
-    }
-    break;
-  case TO_CHR:
-    if (record->event.pressed) {
-      set_indicators_state(CR_HSV_GOLD);
-    }
-    break;
-  case TO_MOS:
-    if (record->event.pressed) {
-      set_indicators_state(CR_HSV_ORANGE);
-    }
-    break;
-  case TO_GAM:
-    if (record->event.pressed) {
-      set_indicators_state(CR_HSV_RED);
-    }
-    break;
   case V_US:
     if (record->event.pressed) {
-      tap_code(KC_CAPS);
+      set_lang(true);
     }
     break;
   case V_UK:
     if (record->event.pressed) {
-      tap_code16(S(KC_CAPS));
+      set_lang(false);
     }
     break;
   }
   return true;
 }
-#endif // RGBLIGHT_ENABLE
-
-
-#ifdef LEADER_ENABLE
-void leader_end_user(void) {
-  if (leader_sequence_one_key(QK_LEAD)) {
-    return;
-  }
-  if (leader_sequence_one_key(KC_C)) {
-    register_code(KC_LSFT);
-    tap_code16(C(KC_C));
-    unregister_code(KC_LSFT);
-    return;
-  }
-  if (leader_sequence_one_key(KC_V)) {
-    register_code(KC_LSFT);
-    tap_code16(C(KC_V));
-    unregister_code(KC_LSFT);
-    return;
-  }
-  if (leader_sequence_one_key(KC_A)) {
-    tap_code(KC_PSCR);
-    tap_code16(S(KC_QUOT));
-    tap_code(KC_A);
-    return;
-  }
-  if (leader_sequence_one_key(KC_E)) {
-    tap_code(KC_PSCR);
-    tap_code16(S(KC_QUOT));
-    tap_code(KC_E);
-    return;
-  }
-  if (leader_sequence_one_key(KC_O)) {
-    tap_code(KC_PSCR);
-    tap_code16(S(KC_QUOT));
-    tap_code(KC_O);
-    return;
-  }
-  if (leader_sequence_one_key(KC_U)) {
-    tap_code(KC_PSCR);
-    tap_code16(S(KC_QUOT));
-    tap_code(KC_U);
-    return;
-  }
-  if (leader_sequence_one_key(KC_Q)) {
-    tap_code(KC_SCLN);
-    tap_code(KC_W);
-    tap_code(KC_Q);
-    return;
-  }
-  if (leader_sequence_one_key(KC_X)) {
-    tap_code16(A(KC_X));
-    return;
-  }
-}
-#endif
-
-#ifdef TAP_DANCE_ENABLE
-#define TAP_TAPPING_TERM 220
-void keyboard_post_init_user(void) {
-    vial_tap_dance_entry_t td0 = { TO_CLM, // Change layers
-                                   TO_CHR,
-                                   TO_NMB,
-                                   TO_MOS,
-                                   TAP_TAPPING_TERM };
-    vial_tap_dance_entry_t td1 = { V_US, // Change language
-                                   V_UK,
-                                   V_UK,
-                                   V_UK,
-                                   TAP_TAPPING_TERM };
-    vial_tap_dance_entry_t td2 = { KC_QUOT, // ' [ ? ]
-                                   KC_LBRC,
-                                   LSFT(KC_SLSH),
-                                   KC_RBRC,
-                                   TAP_TAPPING_TERM };
-    vial_tap_dance_entry_t td3 = { KC_SLASH, // / . , backslash
-                                   KC_DOT,
-                                   KC_COMM,
-                                   KC_BSLS,
-                                   TAP_TAPPING_TERM };
-    dynamic_keymap_set_tap_dance(0, &td0); // the first value corresponds to the TD(i) slot
-    dynamic_keymap_set_tap_dance(1, &td1);
-    dynamic_keymap_set_tap_dance(2, &td2);
-    dynamic_keymap_set_tap_dance(3, &td3);
-}
-#endif // TAP_DANCE_ENABLE
-
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [COLMAK_L] = LAYOUT_split_3x6_3(
