@@ -276,7 +276,7 @@
         "KC_H"
       ],
       [
-        "TD(1)",
+        "KC_TAB",
         "KC_LSHIFT",
         "KC_A",
         "KC_S",
@@ -284,7 +284,7 @@
         "KC_F"
       ],
       [
-        "KC_NO",
+        "KC_LALT",
         "KC_LCTRL",
         "KC_Z",
         "KC_X",
@@ -295,9 +295,9 @@
         -1,
         -1,
         -1,
-        "KC_LALT",
-        "KC_TAB",
-        "KC_ENTER"
+        "KC_ENTER",
+        "KC_SPACE",
+        "TD(0)"
       ],
       [
         "KC_NO",
@@ -327,8 +327,8 @@
         -1,
         -1,
         -1,
-        "KC_NO",
-        "TD(0)",
+        "KC_BSPACE",
+        "KC_TAB",
         "KC_ENTER"
       ]
     ]
