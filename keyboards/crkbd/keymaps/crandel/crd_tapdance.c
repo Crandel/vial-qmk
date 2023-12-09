@@ -20,7 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 
 #define TAP_TAPPING_TERM 220
-void keyboard_post_init_user(void) {
+void install_tap_dance_entries(void) {
     vial_tap_dance_entry_t td0 = { TO_CLM, // Change layers
                                    TO_CHR,
                                    TO_NMB,

@@ -439,35 +439,7 @@
       "KC_NO",
       "KC_NO",
       "KC_NO",
-      360
-    ],
-    [
-      "KC_NO",
-      "KC_NO",
-      "KC_NO",
-      "KC_NO",
-      360
-    ],
-    [
-      "KC_NO",
-      "KC_NO",
-      "KC_NO",
-      "KC_NO",
-      360
-    ],
-    [
-      "KC_NO",
-      "KC_NO",
-      "KC_NO",
-      "KC_NO",
-      360
-    ],
-    [
-      "KC_NO",
-      "KC_NO",
-      "KC_NO",
-      "KC_NO",
-      360
+      220
     ]
   ],
   "combo": [
@@ -491,13 +463,6 @@
       "KC_NO",
       "KC_NO",
       "USER00"
-    ],
-    [
-      "KC_NO",
-      "KC_NO",
-      "KC_NO",
-      "KC_NO",
-      "KC_NO"
     ],
     [
       "KC_G",

@@ -29,13 +29,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef NO_PRINT
 #define NO_PRINT
 #endif // !NO_PRINT
+#undef LOCKING_SUPPORT_ENABLE
+#undef LOCKING_RESYNC_ENABLE
+#define NO_ACTION_ONESHOT
+#define NO_MUSIC_MODE
+#define LAYER_STATE_8BIT
 
 // Vial settings
 #define VIAL_KEYBOARD_UID      {0x3B, 0x6B, 0xA0, 0x29, 0x80, 0x56, 0xED, 0xD1}
 #define VIAL_UNLOCK_COMBO_ROWS {0, 2}
 #define VIAL_UNLOCK_COMBO_COLS {0, 2}
-#define VIAL_TAP_DANCE_ENTRIES 9
-#define VIAL_COMBO_ENTRIES     9
+#define VIAL_TAP_DANCE_ENTRIES 5
+#define VIAL_COMBO_ENTRIES     8
 
 #define DYNAMIC_KEYMAP_LAYER_COUNT 5
 #define TAPPING_TERM   160
@@ -71,6 +76,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #  undef RGBLIGHT_EFFECT_SNAKE
 #  undef RGBLIGHT_EFFECT_STATIC_GRADIENT
 #  undef RGBLIGHT_EFFECT_TWINKLE
+#  undef RGBLIGHT_SPLIT
 #  define RGBLIGHT_DEFAULT_HUE 85
 #  define RGBLIGHT_DEFAULT_VAL 55
 #  define RGBLIGHT_DISABLE_KEYCODES
@@ -79,7 +85,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #  define RGBLIGHT_VAL_STEP 10
 #  define RGBLIGHT_LIMIT_VAL 120
 #  define RGBLIGHT_SLEEP
-#  define RGBLIGHT_SPLIT
 #  define CR_HSV_BLUE        170, 255, 55
 #  define CR_HSV_CYAN        128, 255, 55
 #  define CR_HSV_GOLD         36, 255, 55

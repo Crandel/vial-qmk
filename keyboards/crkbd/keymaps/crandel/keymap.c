@@ -87,6 +87,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
+void keyboard_post_init_user(void) {
+  // Call the post init code.
+  #ifdef TAP_DANCE_ENABLE
+  install_tap_dance_entries();
+  #endif
+
+  #ifdef OLED_ENABLE
+  update_oled_layer("Colemak");
+  #endif
+  // update layer_str
+}
+
+uint16_t keycode_config(uint16_t keycode) {
+    return keycode;
+}
+
+uint8_t mod_config(uint8_t mod) {
+    return mod;
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [COLMAK_L] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------------------.    ,------------------------------------------------------------------.
