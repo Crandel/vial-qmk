@@ -35,7 +35,7 @@ void leader_end_user(void) {
     tap_code(KC_Q);
     return;
   }
-  if (leader_sequence_one_key(KC_X)) {
+  if (leader_sequence_one_key(KC_QUOT)) {
     tap_code16(A(KC_X));
     return;
   }
