@@ -15,6 +15,7 @@ QMK_SETTINGS           = no
 RAW_ENABLE             = no
 RGBLIGHT_ENABLE        = yes # Enable WS2812 RGB underlight.
 SPACE_CADET_ENABLE     = no
+SWAP_HANDS_ENABLE      = no      # Enable one-hand typing
 TAP_DANCE_ENABLE       = yes
 VIAL_ENABLE            = yes # Enable VIAL
 VIAL_INSECURE          = yes # Disable security
