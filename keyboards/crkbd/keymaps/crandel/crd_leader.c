@@ -25,6 +25,12 @@ void leader_end_user(void) {
     umlauts(KC_O);
     return;
   }
+  if (leader_sequence_one_key(KC_S)) {
+    tap_code(KC_PSCR);
+    tap_code(KC_S);
+    tap_code(KC_S);
+    return;
+  }
   if (leader_sequence_one_key(KC_U)) {
     umlauts(KC_U);
     return;
