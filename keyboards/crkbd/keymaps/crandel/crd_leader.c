@@ -45,7 +45,15 @@ void leader_end_user(void) {
     tap_code16(A(KC_X));
     return;
   }
-  if (leader_sequence_one_key(KC_SLASH)) {
+  if (leader_sequence_one_key(SLS_TD)) {
+    tap_code16(S(KC_7));
+    return;
+  }
+  if (leader_sequence_two_keys(KC_T, KC_T)) {
+    tap_code16(A(KC_X));
+    return;
+  }
+  if (leader_sequence_two_keys(KC_T, KC_S)) {
     tap_code16(S(KC_7));
     return;
   }
