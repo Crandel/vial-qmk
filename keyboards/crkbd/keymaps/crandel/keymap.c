@@ -44,19 +44,19 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
   #endif // CONSOLE_ENABLE
   switch (biton32(state)) {
     case COLMAK_L:
-      rgblight_sethsv(CR_HSV_GREEN);
+      set_indicators_state(CR_HSV_GREEN, colmk);
       break;
     case NUM_L:
-      rgblight_sethsv(CR_HSV_BLUE);
+      set_indicators_state(CR_HSV_BLUE, nmbrs);
       break;
     case CHARS_L:
-      rgblight_sethsv(CR_HSV_GOLD);
+      set_indicators_state(CR_HSV_GOLD, chars);
       break;
     case MOUSE_L:
-      rgblight_sethsv(CR_HSV_ORANGE);
+      set_indicators_state(CR_HSV_ORANGE, mouse);
       break;
     case GAME_L:
-      rgblight_sethsv(CR_HSV_RED);
+      set_indicators_state(CR_HSV_RED, games);
       break;
   }
   return state;
@@ -92,10 +92,14 @@ void keyboard_post_init_user(void) {
   #ifdef TAP_DANCE_ENABLE
   install_tap_dance_entries();
   #endif
-
   #ifdef OLED_ENABLE
-  update_oled_layer("Colemak");
-  #endif
+  update_oled_layer(colmk);
+  #endif // OLED_ENABLE
+  #ifdef RGBLIGHT_ENABLE
+  rgblight_sethsv(CR_HSV_GREEN);
+  #endif // RGBLIGHT_ENABLE
+
+
   // update layer_str
 }
 

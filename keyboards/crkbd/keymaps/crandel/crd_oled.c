@@ -1,6 +1,6 @@
 char layer_str[34] = {};
 
-void update_oled_layer(const char *data){
+void update_oled_layer(const char* data){
   // update layer_str
   snprintf(layer_str,
            sizeof(layer_str),
