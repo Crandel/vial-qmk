@@ -4,7 +4,7 @@
   "layout": [
     [
       [
-        "KC_GESC",
+        "KC_NO",
         "KC_Q",
         "LALT_T(KC_W)",
         "LCTL_T(KC_F)",
@@ -12,7 +12,7 @@
         "KC_B"
       ],
       [
-        "TD(1)",
+        "KC_NO",
         "KC_A",
         "KC_R",
         "KC_S",
@@ -20,7 +20,7 @@
         "KC_G"
       ],
       [
-        "KC_LSHIFT",
+        "KC_NO",
         "KC_Z",
         "KC_X",
         "KC_C",
@@ -36,7 +36,7 @@
         "TD(0)"
       ],
       [
-        "KC_DELETE",
+        "KC_NO",
         "KC_SCOLON",
         "RALT_T(KC_Y)",
         "LCTL_T(KC_U)",
@@ -390,6 +390,16 @@
         "KC_A"
       ]
     ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
     []
   ],
   "vial_protocol": 6,
@@ -400,35 +410,35 @@
       "DF(2)",
       "DF(1)",
       "DF(3)",
-      220
+      260
     ],
     [
       "USER00",
       "USER01",
       "USER01",
       "USER01",
-      220
+      260
     ],
     [
       "KC_QUOTE",
       "KC_LBRACKET",
       "LSFT(KC_SLASH)",
       "KC_RBRACKET",
-      220
+      260
     ],
     [
       "KC_SLASH",
       "KC_DOT",
       "KC_COMMA",
       "KC_BSLASH",
-      220
+      260
     ],
     [
       "KC_NO",
       "KC_NO",
       "KC_NO",
       "KC_NO",
-      220
+      260
     ]
   ],
   "combo": [
@@ -487,6 +497,55 @@
       "KC_NO",
       "KC_NO",
       "M3"
+    ],
+    [
+      "KC_B",
+      "KC_M",
+      "KC_NO",
+      "KC_NO",
+      "KC_DELETE"
+    ],
+    [
+      "KC_G",
+      "KC_E",
+      "KC_NO",
+      "KC_NO",
+      "KC_GRAVE"
+    ],
+    [
+      "KC_B",
+      "KC_O",
+      "KC_NO",
+      "KC_NO",
+      "KC_EQUAL"
+    ],
+    [
+      "KC_V",
+      "KC_E",
+      "KC_NO",
+      "KC_NO",
+      "RSFT(KC_EQUAL)"
+    ],
+    [
+      "KC_A",
+      "KC_L",
+      "KC_NO",
+      "KC_NO",
+      "RSFT(KC_QUOTE)"
+    ],
+    [
+      "KC_A",
+      "KC_S",
+      "KC_L",
+      "KC_NO",
+      "KC_QUOTE"
+    ],
+    [
+      "KC_NO",
+      "KC_NO",
+      "KC_NO",
+      "KC_NO",
+      "KC_NO"
     ]
   ],
   "key_override": [],
