@@ -19,8 +19,3 @@ enum virtual_keycodes {
 #define TO_MOS DF(MOUSE_L)
 #define TO_GAM DF(GAME_L)
 #define SLS_TD TD(3)
-const char* colmk = "Co";
-const char* nmbrs = "Nu";
-const char* chars = "Ch";
-const char* mouse = "Mo";
-const char* games = "Ga";
