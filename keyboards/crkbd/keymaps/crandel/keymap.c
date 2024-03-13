@@ -45,23 +45,15 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
   switch (biton32(state)) {
     case COLMAK_L:
       set_indicators_state(CR_HSV_GREEN, "Colemak");
-      // send Colemak key
-      tap_code(KC_F15);
       break;
     case NUM_L:
       set_indicators_state(CR_HSV_BLUE, "Numbers");
-      // send Numbers key
-      tap_code(KC_F16);
       break;
     case CHARS_L:
       set_indicators_state(CR_HSV_GOLD, "Chars");
-      // send Chars key
-      tap_code(KC_F17);
       break;
     case MOUSE_L:
       set_indicators_state(CR_HSV_ORANGE, "Mouse");
-      // send Mouse key
-      tap_code(KC_F18);
       break;
     case GAME_L:
       set_indicators_state(CR_HSV_RED, "Games");
@@ -101,14 +93,11 @@ void keyboard_post_init_user(void) {
   install_tap_dance_entries();
   #endif
   #ifdef OLED_ENABLE
-  update_oled_layer(colmk);
+  update_oled_layer("Colemak");
   #endif // OLED_ENABLE
   #ifdef RGBLIGHT_ENABLE
   rgblight_sethsv(CR_HSV_GREEN);
   #endif // RGBLIGHT_ENABLE
-
-
-  // update layer_str
 }
 
 uint16_t keycode_config(uint16_t keycode) {
@@ -121,27 +110,27 @@ uint8_t mod_config(uint8_t mod) {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [COLMAK_L] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------------------.    ,------------------------------------------------------------------.
-     XXXXXXX,    KC_Q, LALT_T(KC_W), LCTL_T(KC_F), LSFT_T(KC_P),  KC_B,       KC_E, LSFT_T(KC_I), LCTL_T(KC_U), RALT_T(KC_Y), KC_SCLN,  XXXXXXX,
-  //|-------+--------+-------------+-------------+-------------+------|    |------+-------------+-------------+-------------+--------+--------|
-     XXXXXXX,    KC_A,         KC_R,         KC_S,         KC_T,  KC_G,       KC_M,         KC_H,         KC_J,         KC_K,    KC_L,  XXXXXXX,
-  //|-------+--------+-------------+-------------+-------------+------|    |------+-------------+-------------+-------------+--------+--------|
-     XXXXXXX,    KC_Z,         KC_X,         KC_C,         KC_D,  KC_V,       KC_O,         KC_N,      KC_COMM,       KC_DOT,  SLS_TD, XXXXXXX,
-  //|-------+--------+-------------+-------------+-------------+-- ---|    |------+-------------+-------------+-------------+--------+--------|
-                                          KC_LGUI,       KC_SPC, TD(0),     KC_ENT,      KC_BSPC,      QK_LEAD
-                                          //`-------------------------'    `----------------------------------'
+  //,----------------------------------------------------------------------.    ,--------------------------------------------------------------------------.
+     XXXXXXX, LGUI_T(KC_Q), LALT_T(KC_W), LCTL_T(KC_F), LSFT_T(KC_P),  KC_B,       KC_E, LSFT_T(KC_I), LCTL_T(KC_U), RALT_T(KC_Y), LGUI_T(KC_SCLN), XXXXXXX,
+  //|-------+-------------+-------------+-------------+-------------+------|    |------+-------------+-------------+-------------+----------------+--------|
+     XXXXXXX,         KC_A,         KC_R,         KC_S,         KC_T,  KC_G,       KC_M,         KC_H,         KC_J,         KC_K,            KC_L, XXXXXXX,
+  //|-------+-------------+-------------+-------------+-------------+------|    |------+-------------+-------------+-------------+----------------+--------|
+     XXXXXXX,         KC_Z,         KC_X,         KC_C,         KC_D,  KC_V,       KC_O,         KC_N,      KC_COMM,       KC_DOT,          SLS_TD, XXXXXXX,
+  //|-------+-------------+-------------+-------------+-------------+-- ---|    |------+-------------+-------------+-------------+----------------+--------|
+                                               QK_LEAD,       KC_SPC, TD(0),     KC_ENT,       KC_TAB,      KC_BSPC
+                                               //`-------------------------'    `----------------------------------'
   ),
 
   [NUM_L] = LAYOUT_split_3x6_3(
-  //,------------------------------------------------------------------.    ,---------------------------------------------------------------------------------.
-      XXXXXXX, KC_F5, LALT_T(KC_7), LCTL_T(KC_4), LSFT_T(KC_2), KC_MINS,          KC_HOME, LSFT_T(KC_END), LCTL_T(KC_PGDN), RALT_T(KC_PGUP),  XXXXXXX,  KC_DEL,
-  //|--------+------+-------------+-------------+-------------+--------|    |------------+---------------+----------------+----------------+---------+--------|
-      XXXXXXX, KC_F4,         KC_8,         KC_5,         KC_1,    KC_3,           KC_DOT,        KC_LEFT,         KC_DOWN,           KC_UP, KC_RIGHT,   TD(2),
-  //|--------+------+-------------+-------------+-------------+--------|    |------------+---------------+----------------+----------------+---------+--------|
-      XXXXXXX, KC_F3,         KC_9,         KC_6,         KC_0,   KC_F2,          KC_BTN4,        KC_BTN1,         KC_BTN2,         KC_BTN3,  KC_BSLS, KC_PSCR,
-  //---------+------+-------------+-------------+-------------+--------|    |------------+---------------+----------------+----------------+---------+--------|
-                                         KC_LGUI,       KC_SPC,   TD(0),           KC_ENT,        KC_BSPC,          QK_LEAD
-                                         //`---------------------------'    `---------------------------------------------'
+  //,--------------------------------------------------------------------------.    ,---------------------------------------------------------------------------------------.
+      XXXXXXX, LGUI_T(KC_F5), LALT_T(KC_7), LCTL_T(KC_4), LSFT_T(KC_2), KC_MINS,          KC_HOME, LSFT_T(KC_END), LCTL_T(KC_PGDN), RALT_T(KC_PGUP), LGUI_T(KC_DOT), XXXXXXX,
+  //|--------+--------------+-------------+-------------+-------------+--------|    |------------+---------------+----------------+----------------+---------------+--------|
+      XXXXXXX,         KC_F4,         KC_8,         KC_5,         KC_1,    KC_3,           KC_DOT,        KC_LEFT,         KC_DOWN,           KC_UP,       KC_RIGHT, XXXXXXX,
+  //|--------+--------------+-------------+-------------+-------------+--------|    |------------+---------------+----------------+----------------+---------------+--------|
+      XXXXXXX,         KC_F3,         KC_9,         KC_6,         KC_0,   KC_F2,          KC_BTN4,        KC_BTN1,         KC_BTN2,         KC_BTN3,        KC_BSLS, XXXXXXX,
+  //---------+--------------+-------------+-------------+-------------+--------|    |------------+---------------+----------------+----------------+---------------+--------|
+                                                 QK_LEAD,       KC_SPC,   TD(0),           KC_ENT,         KC_TAB,         KC_BSPC
+                                                 //`---------------------------'    `---------------------------------------------'
   ),
 
   [CHARS_L] = LAYOUT_split_3x6_3(
@@ -152,20 +141,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|---------+--------+-----------+-----------+-----------+-----------|    |------------+--------------+--------------+-------------+--------------+--------|
        KC_LALT, XXXXXXX,     KC_CUT, LSFT(KC_6),     KC_APP,    KC_PSTE,     LSFT(KC_EQL), LSFT(KC_LBRC), LSFT(KC_COMM), LSFT(KC_DOT), LSFT(KC_RBRC), KC_PSCR,
   //|---------+--------+-----------+-----------+-----------+-----------|    |------------+--------------+--------------+-------------+--------------+--------|
-                                        KC_LGUI,     KC_SPC,      TD(0),           KC_ENT,       KC_BSPC,        QK_LEAD
+                                        QK_LEAD,     KC_SPC,      TD(0),           KC_ENT,        KC_TAB,       KC_BSPC
                                         //`----------------------------'    `------------------------------------------'
   ),
 
   [MOUSE_L] = LAYOUT_split_3x6_3(
-  //,-------------------------------------------------------.              ,--------------------------------------------------------.
-      QK_GESC,  KC_BRID, KC_BRIU,  KC_VOLD, KC_VOLU,   KC_F9,                    KC_F10,  KC_F11, KC_WH_D, KC_WH_U, KC_PSCR, QK_BOOT,
-  //|--------+---------+--------+---------+--------+--------|              |-----------+--------+--------+--------+--------+--------|
-        TD(1),  XXXXXXX, KC_BTN4,  KC_BTN2, KC_BTN1, KC_BTN3,                    KC_F12, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R,  TO_GAM,
-  //|--------+---------+--------+---------+--------+--------|              |-----------+--------+--------+--------+-----------------|
-      QK_BOOT,  XXXXXXX,  KC_CUT,  KC_COPY,  KC_APP, KC_PSTE,                    KC_INS, KC_WBAK, KC_PGDN, KC_PGUP, KC_WFWD, XXXXXXX,
-  //|--------+---------+--------+------------------+--------|              |-----------+--------+--------+--------+--------+--------|
-                                   KC_LGUI,  KC_SPC,   TD(0),                    KC_ENT, KC_BSPC, QK_LEAD
-                                   //`----------------------'              `-----------------------------'
+  //,-------------------------------------------------------.     ,--------------------------------------------------------.
+      QK_GESC,  KC_BRID, KC_BRIU,  KC_VOLD, KC_VOLU,   KC_F9,           KC_F10,  KC_F11, KC_WH_D, KC_WH_U, KC_PSCR, QK_BOOT,
+  //|--------+---------+--------+---------+--------+--------|     |-----------+--------+--------+--------+--------+--------|
+        TD(1),  XXXXXXX, KC_BTN4,  KC_BTN2, KC_BTN1, KC_BTN3,           KC_F12, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R,  TO_GAM,
+  //|--------+---------+--------+---------+--------+--------|     |-----------+--------+--------+--------+-----------------|
+      QK_BOOT,  XXXXXXX,  KC_CUT,  KC_COPY,  KC_APP, KC_PSTE,           KC_INS, KC_WBAK, KC_PGDN, KC_PGUP, KC_WFWD, XXXXXXX,
+  //|--------+---------+--------+---------+--------+--------|     |-----------+--------+--------+--------+--------+--------|
+                                   QK_LEAD,  KC_SPC,   TD(0),           KC_ENT,  KC_TAB, KC_BSPC
+                                   //`----------------------'     `-----------------------------'
   ),
 
   [GAME_L] = LAYOUT_split_3x6_3(
@@ -176,7 +165,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|-------+--------+-----+-------+-------+-------|    |------+---------+--------+--------+--------+--------|
      KC_LALT, KC_LCTL, KC_Z,   KC_X,   KC_C,   KC_V,       KC_6,     KC_7,    KC_8,    KC_9,    KC_0, XXXXXXX,
   //|-------+--------+-----+-------+-------+-------|    |------+---------+--------+--------+--------+--------|
-                             KC_ENT, KC_SPC,  TD(0),     KC_ENT,  KC_BSPC, XXXXXXX
+                             KC_ENT, KC_SPC,  TD(0),     KC_ENT,   KC_TAB, KC_BSPC
                             //`--------------------'    `-------------------------'
   ),
 };
