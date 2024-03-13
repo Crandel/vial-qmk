@@ -1,0 +1,23 @@
+COMMAND_ENABLE         = yes
+CONSOLE_ENABLE         = yes
+EXTRAKEY_ENABLE        = yes
+KEY_OVERRIDE_ENABLE    = no
+LEADER_ENABLE          = yes
+LTO_ENABLE             = yes
+MAGIC_ENABLE           = no
+MIDI_ENABLE            = no
+MOUSEKEY_ENABLE        = yes # Mouse keys
+NKRO_ENABLE            = yes  # Enable N-Key Rollover
+OLED_ENABLE            = no
+POINTING_DEVICE_ENABLE = no
+QMK_SETTINGS           = yes
+RAW_ENABLE             = no
+RGBLIGHT_ENABLE        = no
+SPACE_CADET_ENABLE     = no
+SWAP_HANDS_ENABLE      = no # Enable one-hand typing
+TAP_DANCE_ENABLE       = yes
+VIAL_ENABLE            = yes # Enable VIAL
+VIAL_INSECURE          = yes # Disable security
+VIA_ENABLE             = yes # Enable VIA
+VIRTSER_ENABLE         = no
+
