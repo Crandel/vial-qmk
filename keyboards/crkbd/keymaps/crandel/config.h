@@ -19,22 +19,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#ifdef DEBUG_ENABLE
-#include "print.h"
-#endif
-// Disable options
-#ifndef NO_DEBUG
-#define NO_DEBUG
-#endif // !NO_DEBUG
-#ifndef NO_PRINT
-#define NO_PRINT
-#endif // !NO_PRINT
-#undef LOCKING_SUPPORT_ENABLE
-#undef LOCKING_RESYNC_ENABLE
-#define NO_ACTION_ONESHOT
-#define NO_MUSIC_MODE
-#define LAYER_STATE_8BIT
-
 // Vial settings
 #define VIAL_KEYBOARD_UID      {0x3B, 0x6B, 0xA0, 0x29, 0x80, 0x56, 0xED, 0xD1}
 #define VIAL_UNLOCK_COMBO_ROWS {0, 2}
@@ -45,9 +29,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DYNAMIC_KEYMAP_LAYER_COUNT 5
 #define DYNAMIC_KEYMAP_MACRO_COUNT 15
 
-#define TAPPING_TERM   260
-#define TAPPING_TOGGLE 3
-#define PERMISSIVE_HOLD
 //#define USE_MATRIX_I2C
 #ifdef KEYBOARD_crkbd_rev1_legacy
 #    undef USE_I2C
@@ -98,10 +79,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #  define CR_HSV_YELLOW       43, 255, 55
 #endif
 
-#ifdef LEADER_ENABLE
-#  define LEADER_NO_TIMEOUT
-#  define LEADER_PER_KEY_TIMING
-#endif
 
 #ifdef OLED_ENABLE
 #  define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"

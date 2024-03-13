@@ -17,6 +17,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include "crandel.c"
+
 void keyboard_post_init_user(void) {
   // Call the post init code.
   #ifdef TAP_DANCE_ENABLE

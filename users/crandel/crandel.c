@@ -1,14 +1,13 @@
 #include QMK_KEYBOARD_H
 #include "vial.h"
 
-#include "crd_keycodes.h"
+#include "crandel.h"
 
 #ifdef OLED_ENABLE
 #  include <stdio.h>
 #  include "crd_oled.c"
 #endif
 
-#include "crd_helpers.c"
 
 #ifdef LEADER_ENABLE
 #  include "crd_leader.c"
