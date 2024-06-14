@@ -13,7 +13,6 @@
 //#define PRODUCT_ID 0x0002
 
 #define USE_SERIAL
-#define SPLIT_HAND_PIN      GP26  // high = left, low = right
 //#define	SPLIT_HAND_PIN_LOW_IS_LEFT
 //#define SPLIT_HAND_MATRIX_GRID GP9, GP8
 //#define MASTER_RIGHT
@@ -41,7 +40,6 @@
 #define MATRIX_COL_PINS { GP2, GP3, GP4, GP5, GP6  }
 #define MATRIX_ROW_PINS { GP9, GP10, GP11, GP12, GP13 }
 
-#define DIODE_DIRECTION COL2ROW
 
 #define SPLIT_POINTING_ENABLE
 #define ROTATIONAL_TRANSFORM_ANGLE  -25
