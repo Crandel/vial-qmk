@@ -38,8 +38,8 @@
 
 
 // Split settings
-#define USE_SERIAL
-#define SPLIT_LAYER_STATE_ENABLE
+/* #define USE_SERIAL */
+/* #define SPLIT_LAYER_STATE_ENABLE */
 #define SPLIT_POINTING_ENABLE
 #define SPLIT_TRANSACTION_IDS_KB RPC_ID_KB_CONFIG_SYNC
 // end of split settings
@@ -49,7 +49,7 @@
 #define LOCKING_SUPPORT_ENABLE
 // Locking resynchronize hack
 #define LOCKING_RESYNC_ENABLE// Enables This makes it easier for fast typists to use dual-function keys
-#define PERMISSIVE_HOLD
+/* #define PERMISSIVE_HOLD */
 // End of Basic Config
 
 
@@ -68,7 +68,8 @@
 #endif
 
 #ifdef RGBLIGHT_ENABLE
-#define RGBLED_NUM 42
+/* #define RGBLED_NUM 42 */
+#define RGBLIGHT_LED_COUNT 42
 #define RGBLIGHT_EFFECT_ALTERNATING
 #define RGBLIGHT_EFFECT_BREATHING
 #define RGBLIGHT_EFFECT_RAINBOW_MOOD
