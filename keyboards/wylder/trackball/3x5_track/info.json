@@ -17,7 +17,9 @@
     "console": false,
     "extrakey": true,
     "mousekey": true,
-    "nkro": true
+    "nkro": true,
+    "via": true,
+    "vial": true
   },
   "height": 8,
   "keyboard_name": "Dactyl-Wyld-Trackball",
@@ -112,6 +114,9 @@
       "mouse": true
     },
     "vid": "0x9953"
+  },
+  "vial": {
+    "insecure": true
   },
   "width": 18
 }
