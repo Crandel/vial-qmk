@@ -17,10 +17,11 @@
     "console": false,
     "extrakey": true,
     "mousekey": true,
-    "nkro": true
+    "nkro": true,
+    "tapdance": true
   },
   "height": 8,
-  "keyboard_name": "Vitalii - Trackball",
+  "keyboard_name": "Dactyl-Skree-Track",
   "layouts": {
     "LAYOUT": {
       "layout": [
@@ -69,7 +70,7 @@
       ]
     }
   },
-  "maintainer": "qmk",
+  "maintainer": "crandel",
   "manufacturer": "skree",
   "matrix": {"cols": 5, "rows": 10},
   "mousekey": {
@@ -101,6 +102,7 @@
     },
     "usb_detect": {
       "enabled": true,
+      "polling_interval": 10,
       "timeout": 10000
     }
   },
