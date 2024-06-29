@@ -31,7 +31,7 @@
 
 #define PMW33XX_CS_PIN GP21
 #define PMW33XX_LIFTOFF_DISTANCE 0x02
-#define ROTATIONAL_TRANSFORM_ANGLE  -25
+#define ROTATIONAL_TRANSFORM_ANGLE  -35
 
 // only required if not setting mouse layer elsewhere
 #define AUTO_MOUSE_DEFAULT_LAYER 3
