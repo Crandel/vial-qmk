@@ -14,15 +14,14 @@
   },
   "features": {
     "bootmagic": true,
-    "console": false,
+    "console": true,
     "extrakey": true,
     "mousekey": true,
     "nkro": true,
-    "via": true,
-    "vial": true
+    "tapdance": true
   },
   "height": 8,
-  "keyboard_name": "Dactyl-Wyld-Trackball",
+  "keyboard_name": "Dactyl-Wyld-Track",
   "layouts": {
     "LAYOUT_3x5": {
       "layout": [
@@ -69,7 +68,7 @@
       ]
     }
   },
-  "maintainer": "qmk",
+  "maintainer": "crandel",
   "manufacturer": "wylderbuilds",
   "matrix": {"cols": 5, "rows": 10},
   "mousekey": {
@@ -98,6 +97,7 @@
     },
     "usb_detect": {
       "enabled": true,
+      "polling_interval": 10,
       "timeout": 10000
     }
   },
@@ -110,13 +110,8 @@
   "usb": {
     "device_version": "0.0.1",
     "pid": "0x0032",
-    "shared_endpoint": {
-      "mouse": true
-    },
+    "shared_endpoint": {"mouse": true},
     "vid": "0x9953"
-  },
-  "vial": {
-    "insecure": true
   },
   "width": 18
 }
