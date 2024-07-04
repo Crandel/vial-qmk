@@ -10,7 +10,7 @@
     "macro_count": 15
   },
   "encoder": {
-      "enabled": false
+    "enabled": false
   },
   "features": {
     "bootmagic": true,
