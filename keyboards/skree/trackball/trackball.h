@@ -33,6 +33,7 @@ enum charybdis_keycodes {
     DRAGSCROLL_MODE,
     DRAGSCROLL_MODE_TOGGLE,
 };
+
 #define DPI_MOD  POINTER_DEFAULT_DPI_FORWARD
 #define DPI_RMOD POINTER_DEFAULT_DPI_REVERSE
 #define DPI_RST  POINTER_DEFAULT_DPI_RESET
@@ -121,7 +122,7 @@ uint16_t get_current_dpi(void);
 
 char* get_mouse_mode_string(void);
 
-#endif  // POINTING_DEVICE_ENABLE
+#endif // POINTING_DEVICE_ENABLE
 
 void matrix_init_sub_kb(void);
 void matrix_scan_sub_kb(void);
