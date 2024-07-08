@@ -1,5 +1,4 @@
 #include QMK_KEYBOARD_H
-#include "vitalii.h"
 
 #define _QWERTY 0
 #define _LOWER 1
