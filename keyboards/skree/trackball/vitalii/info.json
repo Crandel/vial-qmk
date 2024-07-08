@@ -107,7 +107,6 @@
     }
   },
   "tapping": {
-    "permissive_hold": true,
     "term": 250,
     "toggle": 3
   },
