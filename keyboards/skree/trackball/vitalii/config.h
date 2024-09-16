@@ -34,7 +34,6 @@
 #define MATRIX_COL_PINS { GP8, GP7, GP6, GP5, GP4, GP3 }
 #define MATRIX_ROW_PINS { GP9, GP10, GP11, GP13 }
 
-#define POINTING_DEVICE_AUTO_MOUSE_ENABLE
 #define POINTING_DEVICE_INVERT_Y
 #define POINTING_DEVICE_RIGHT
 #define POINTING_DEVICE_TASK_THROTTLE_MS 1
@@ -44,8 +43,9 @@
 #define ROTATIONAL_TRANSFORM_ANGLE -35
 
 // only required if not setting mouse layer elsewhere
+#ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
 #define AUTO_MOUSE_DEFAULT_LAYER 3
-
+#endif
 
 // Split settings
 /* #define USE_SERIAL */
